@@ -1,9 +1,8 @@
 plugins {
-    id "com.jfrog.bintray" version "1.2"
+    id "com.gradle.plugin-publish" version "0.9.0"
 }
 
 apply plugin: 'groovy'
-apply plugin: 'maven-publish'
 
 group = 'de.timroes.gradle'
 version = '0.1.0'
@@ -21,17 +20,16 @@ publishing {
     }
 }
 
-bintray {
-    user = properties['bintray.user'] ?: ''
-    key = properties['bintray.key'] ?: ''
+pluginBundle {
+    website = 'https://github.com/timroes/gradle-git-version'
+    vcsUrl = 'https://github.com/timroes/gradle-git-version'
+    description = 'A simple gradle plugin to determine the version number from git.'
+    tags = ['git', 'version']
 
-    publications = ['plugin']
-
-    pkg {
-        repo = 'maven'
-        name = 'git-version'
-        licenses = ['Apache-2.0']
+    plugins {
+        gitVersionPlugin {
+            id = 'de.timroes.git-version'
+            displayName = 'Gradle Git-Version'
+        }
     }
-
-    dryRun = true
 }

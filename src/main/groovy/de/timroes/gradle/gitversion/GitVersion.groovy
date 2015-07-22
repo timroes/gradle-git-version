@@ -39,7 +39,7 @@ class GitVersion {
     private String nextSnapshotVersion(String current) {
         def gitVersion = checkVersionTag(current)
         def (major, minor, patch) = gitVersion.tokenize('.')
-        return String.format('%s.%s.%s-SNAPSHOT', major, minor.toInteger() + 1, patch)
+        return String.format('%s.%s.%s-SNAPSHOT', major, minor.toInteger() + 1, 0)
 
     }
 

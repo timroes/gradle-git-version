@@ -5,8 +5,8 @@ import org.gradle.api.Project
 
 public class GitVersionPlugin implements Plugin<Project> {
 
-    void apply(Project project) {
-        project.ext.gitVersion = new GitVersion()
-    }
+	void apply(Project project) {
+		project.ext.gitVersion = new GitVersion()
+	}
 
 }
